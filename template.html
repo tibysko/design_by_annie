@@ -298,7 +298,7 @@ p {
     float: left;
 }
 
-.dbi-divider:after {
+.dba-divider:after {
     content: '|';
     color: white;
     position: relative;
@@ -314,13 +314,13 @@ p {
 **********************************/
 .navigation {
   border: 0;
-  padding: 40px 0 10px 0; }
+  padding: 12px 0 10px 0; }
   .navigation .divider {
     width: 30%;
     margin: 30px auto; }
   .navigation li {
     display: block;
-    font-size: 12px;
+    font-size: 14px;
     -webkit-font-smoothing: subpixel-antialiased;
     position: relative; }
     .navigation li a {
@@ -826,9 +826,15 @@ footer {
 
     <nav class="main_navigation navigation">
       <ul>
+         <li class="store_link column {{#all_items}}selected{{/all_items}}">
+          <a class="dba-divider" href="{{store_url}}">
+            {{#lang}}All items{{/lang}}
+          </a>
+         </li>
+        
         {{#navigation}}
         <li {{#children?}}data-url="{{url}}"{{/children?}} class="top_level navigation_item column {{#children?}}has_children{{/children?}} {{#is_current}}selected{{/is_current}}">
-          <a class="dbi-divider" href="{{url}}">
+          <a class="dba-divider" href="{{url}}">
             {{label}} {{#children?}}<span class="drop_icon"></span>{{/children?}}
           </a>
      
@@ -847,7 +853,8 @@ footer {
           <a href="{{store_url}}/page/about">
             {{#lang}}About{{/lang}}
           </a>
-        </li>
+         </li>
+
 
       </ul>
     </nav>
@@ -882,6 +889,12 @@ footer {
 
   <nav class="mobile_navigation navigation">
     <ul class="top_level">
+         <li class="store_link column {{#all_items}}selected{{/all_items}}">
+           <a href="{{store_url}}">
+            {{#lang}}All items{{/lang}}
+          </a>
+        </li>
+    
       {{#navigation}}
       <li {{#children?}}data-url="{{url}}"{{/children?}} class="navigation_item column {{#children?}}has_children{{/children?}} {{#is_current}}selected{{/is_current}}">
         <a href="{{url}}">
