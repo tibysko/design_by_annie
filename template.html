@@ -298,9 +298,12 @@ p {
     float: left;
 }
 
-.main_navigation li::after {
+.dbi-divider:after {
     content: '|';
-    background-color: white;
+    color: white;
+    position: relative;
+    top: -2px;
+    padding: 0px;
 }
 
 
@@ -327,7 +330,7 @@ p {
       text-transform: uppercase;
       line-height: 30px;
       width: 100%;
-      padding: 5px;
+      padding: 5px 1px 5px 5px;
       font-weight: 300; }
       .navigation li a:hover, .navigation li a:focus {
         color: #1caf99;
@@ -825,10 +828,10 @@ footer {
       <ul>
         {{#navigation}}
         <li {{#children?}}data-url="{{url}}"{{/children?}} class="top_level navigation_item column {{#children?}}has_children{{/children?}} {{#is_current}}selected{{/is_current}}">
-          <a href="{{url}}">
+          <a class="dbi-divider" href="{{url}}">
             {{label}} {{#children?}}<span class="drop_icon"></span>{{/children?}}
           </a>
-
+     
         </li>
         {{/navigation}}
 
