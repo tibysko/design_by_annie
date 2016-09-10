@@ -12,12 +12,14 @@
     {{#product_page}}{{#product}}- {{title}}{{/product}}{{/product_page}}
     {{! Add "About" on the about page }}
     {{#about_page}}- {{#lang}}About{{/lang}}{{/about_page}}
+    {{#howtomeasure_page}}- {{#lang}}How to measure{{/lang}}{{/howtomeasure_page}}
   </title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="{{assets_url}}/shared/css/base.css" rel="stylesheet" type="text/css">
   <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <link href='//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' type='text/css' rel="stylesheet">
 
 
   <!--[if lt IE 9]>
@@ -314,7 +316,7 @@ p {
 **********************************/
 .navigation {
   border: 0;
-  padding: 12px 0 10px 0; }
+  padding: 8px 0 10px 0; }
   .navigation .divider {
     width: 30%;
     margin: 30px auto; }
@@ -593,7 +595,7 @@ p {
 /* ABOUT PAGE
 **********************************/
 .about_page {
-  padding: 60px 20px 0;
+  padding: 0px 20px 0;
   text-align: center;
   font-size: 16px;
   line-height: 30px;
@@ -604,12 +606,28 @@ p {
   .about_page .store_description {
     margin-bottom: 40px;
     color: #51616a; }
+    
+/* HOW TO MEASURE PAGE
+**********************************/
+.howtomeasure_page {
+  padding: 0px 20px 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 0px;
+  max-width: 1200px;
+  margin: 0 auto; }
+  .howtomeasure_page h1 {
+    margin-bottom: 40px; }
+  .howtomeasure_page .store_description {
+    margin-bottom: 40px;
+    color: #51616a; }
 
 /* FOOTER
 **********************************/
 footer {
   text-align: center;
   margin-bottom: 40px; }
+  
   footer ul {
     margin-top: 40px; }
   footer li {
@@ -618,6 +636,12 @@ footer {
     font-size: 14px;
     display: inline-block;
     padding: 0 5px; }
+  footer p {
+    font-size: 12px; }
+footer .dba-social {
+    font-size: 24px;
+}
+    
 
 /* MISC
 **********************************/
@@ -850,10 +874,16 @@ footer {
         {{/store_blog_url}}
 
         <li class="store_link column {{#about_page}}selected{{/about_page}}">
-          <a href="{{store_url}}/page/about">
+          <a class="dba-divider" href="{{store_url}}/page/about">
             {{#lang}}About{{/lang}}
           </a>
-         </li>
+        </li>
+        
+        <li class="store_link column {{#howtomeasure_page}}selected{{/howtomeasure_page}}">
+          <a href="{{store_url}}/page/howtomeasure">
+            {{#lang}}How to measure{{/lang}}
+          </a>
+        </li>
 
 
       </ul>
@@ -927,6 +957,13 @@ footer {
           {{#lang}}About{{/lang}}
         </a>
       </li>
+      
+      <li class="store_link column {{#howtomeasure_page}}selected{{/howtomeasure_page}}">
+        <a href="{{store_url}}/page/howtomeasure">
+            {{#lang}}How to measure{{/lang}}
+        </a>
+      </li>
+
 
     </ul>
   </nav>
@@ -948,7 +985,23 @@ footer {
             {{/store_email}}
         </div>
     </article>
-{{/about_page}}{{#list_page}}
+{{/about_page}}
+
+{{#howtomeasure_page}}
+    <article class="about_page">
+        <h1>{{#lang}}How to measure{{/lang}}</h1>
+
+        <div class="store_description html_content">
+           To measure your ring size simply measure the inner diameter of a ring that fits you. If the inner diameter is, for example 16 mm, your ring size will be 16 in the order. All measurements should be in mm. <br/><br/>
+           
+           <b>Try to be as exact as possible so I can make the perfect ring for you! </b>
+            
+        </div>
+    </article>
+{{/howtomeasure_page}}
+
+
+{{#list_page}}
 
     <section id="products">
         <ul class="product_list row">
@@ -1083,6 +1136,14 @@ footer {
       <li>{{#terms}}{{#lang}}Terms{{/lang}}{{/terms}}</li>
       <li>{{#return_policy}}{{#lang}}Returns{{/lang}}{{/return_policy}}</li>
     </ul>
+    
+    <p>&copy; Design by Anni</p>
+    <p class="dba-social">
+        <a href="https://www.facebook.com/designbyanni1/"><i class="icon ion-social-facebook"></i></a>
+        <a href="
+http://www.instagram.com/design_by_anni"><i class="icon ion-social-instagram-outline"></i></a>
+
+    </p>
   </footer>
 </div>
 
