@@ -4,6 +4,7 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
+    <meta name="google-site-verification" content="tY7-sYXH_Wtb3013Nj3qEXVTHSoW7t_u6u_hnvpOP1M" />
     <title>
       {{store_name}}
     {{! Add the label of the current navigation item on list pages }}
@@ -14,6 +15,7 @@
     {{#about_page}}- {{#lang}}About{{/lang}}{{/about_page}}
     {{#howtomeasure_page}}- {{#lang}}How to measure{{/lang}}{{/howtomeasure_page}}
   </title>
+  <meta name="description" content="Jewelry in sterling silver! I want my jewelry to have that handmade look, because of this all my jewelry is unique and a bit raw.">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -374,7 +376,7 @@ p {
 **********************************/
 #main_container {
   margin: 0 auto;
-  padding: 80px 0 0 0; }
+  padding: 30px 0 0 0; }
 
 #products .product_list, #related_products .product_list {
   margin: 0 auto; }
@@ -384,7 +386,82 @@ p {
     width: 300px;
     padding: 20px; }
     #products .product_list li img, #related_products .product_list li img {
-      width: 100%; }
+      width: 100%;}
+    #products img {
+      -webkit-filter: grayscale(0%);
+      -moz-filter: grayscale(0%);
+      filter: grayscale(0%);
+      transition: all 0.5s ease;}  
+    #products img:hover {
+      -webkit-filter: grayscale(1);
+      -webkit-filter: grayscale(100%);
+      filter: gray;
+      filter: grayscale(100%);
+      transition: all 0.5s ease;}
+      
+    .product_list .product_container {
+       -webkit-transition: -webkit-transform .15s linear;
+       -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+       -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+       padding: 10px;
+       background-color: white;
+    }
+  /*  
+   .product_list .product_container {
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+}
+
+ul.product_list li:nth-child(even) .product_container {
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+}
+*/
+/* test */
+/* By default, we tilt all our images -2 degrees */
+ul.product_list .product_container {
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+}
+ 
+/* Rotate all even images 2 degrees */
+ul.product_list li:nth-child(even) .product_container {
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+}
+ 
+/* Don't rotate every third image, but offset its position */
+ul.product_list li:nth-child(3n) .product_container {
+  -webkit-transform: none;
+  -moz-transform: none;
+  position: relative;
+  top: -5px;
+}
+ 
+/* Rotate every fifth image by 5 degrees and offset it */
+ul.product_list li:nth-child(5n) .product_container {
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  position: relative;
+  right: 5px;
+}
+ 
+/* Keep default rotate for every eighth, but offset it */
+ul.product_list li:nth-child(8n) .product_container {
+  position: relative;
+  top: 8px;
+  right: 5px;
+}
+ 
+/* Keep default rotate for every eleventh, but offset it */
+ul.product_list li:nth-child(11n) .product_container {
+  position: relative;
+  top: 3px;
+  left: -5px;
+}
+
+/* end test */
+ 
 
 .masonry, .masonry-brick {
   -webkit-transition-duration: 0.15s;
@@ -427,66 +504,6 @@ p {
     .list_info .price .sale_price {
       color: #da3856; }
 
-.overlay {
-  -webkit-transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-  -moz-transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-  -o-transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-  transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: none;
-  width: 100%;
-  height: 100%; }
-  .overlay span {
-    -webkit-transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-    -moz-transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-    -o-transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-    transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-    -webkit-transform: translateY(50px);
-    -moz-transform: translateY(50px);
-    -ms-transform: translateY(50px);
-    -o-transform: translateY(50px);
-    transform: translateY(50px);
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-    opacity: 0;
-    text-transform: uppercase;
-    font-size: 12px;
-    position: absolute;
-    text-align: center;
-    font-weight: 400;
-    letter-spacing: 2px;
-    line-height: 28px;
-    width: 140px;
-    left: 50%;
-    top: 50%;
-    margin-top: -24px;
-    margin-left: -70px;
-    padding: 10px;
-    border: 1px solid white;
-    color: white; }
-    .overlay:hover, .overlay:focus {
-    background-color: #1caf99;
-    background-color: rgba(28, 175, 153, 0.8);
-    -webkit-transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-    -moz-transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-    -o-transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-    transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1); }
-    .no-touch .overlay:hover span, .overlay:focus span {
-      -webkit-transition: -webkit-transform 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-      -moz-transition: -moz-transform 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-      -o-transition: -o-transform 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-      transition: transform 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
-      opacity: 1;
-      -webkit-transform: translateY(0px);
-      -moz-transform: translateY(0px);
-      -ms-transform: translateY(0px);
-      -o-transform: translateY(0px);
-      transform: translateY(0px);
-      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-      opacity: 1; }
-
 /* SINGLE PRODUCT
 **********************************/
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -502,7 +519,7 @@ p {
 #product {
   text-align: center;
   margin: 0 auto;
-  padding: 60px 0 40px 0; }
+  padding: 20px 0 40px 0; }
   #product .divider {
     border-color: #aaacad;
     margin: 40px auto;
@@ -1023,11 +1040,12 @@ footer .dba-social {
         <ul class="product_list row">
             {{#products}}
             <li class="column">
+            <div class="product_container">
                 <a href="{{url}}" {{#out_of_stock}}class="out_of_stock"{{/out_of_stock}}>
                     <div class="image_container">
                         {{#primary_image}}
                         <img src="{{url-300}}" alt="{{title}}">
-                        <div class="overlay"><span>{{#lang}}View Product{{/lang}}</span></div>
+                        
                         {{/primary_image}}
                     </div>
                 </a>
@@ -1045,6 +1063,8 @@ footer .dba-social {
                     </span>
                     {{/out_of_stock}}
                 </div>
+      
+      </div>
       </li>
             {{/products}}
         </ul>
@@ -1104,6 +1124,11 @@ footer .dba-social {
                 </div>
 
             </section>
+              <script>
+
+         
+
+    </script>
 
             {{social_buttons}}
         </div>
@@ -1119,7 +1144,7 @@ footer .dba-social {
                       <div class="image_container">
                           {{#primary_image}}
                           <img src="{{url-300}}" alt="{{title}}">
-                          <div class="overlay"><span>{{#lang}}View Product{{/lang}}</span></div>
+                         
                           {{/primary_image}}
                       </div>
                   </a>
@@ -1282,7 +1307,16 @@ $(window).load(function(){
     "animation": "slide",
     "controlNav": false
   });
-
+  
+  var element = document.getElementById("main");
+  var productElement = document.getElementById("product");
+  
+  if(element && productElement) {
+    var rect = element.getBoundingClientRect();
+    var bodyRect = document.body.getBoundingClientRect();
+    var  offset   = rect.top - bodyRect.top - 60; // 60 = menu height
+    window.scrollTo(0, offset);
+  }
 });
 </script>
 </body>
