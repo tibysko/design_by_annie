@@ -11,6 +11,8 @@
         {{#product_page}}{{#product}}- {{title}}{{/product}}{{/product_page}}
         {{! Add "About" on the about page }}
         {{#about_page}}- {{#lang}}About{{/lang}}{{/about_page}}
+        {{#retailers_page}}- {{#lang}}Retailers{{/lang}}{{/retailers_page}}
+        {{#products_howtomeasure_page}}- {{#lang}}How to measure{{/lang}}{{/products_howtomeasure_page}}
     </title>
     <link href="{{assets_url}}/shared/css/base.css" rel="stylesheet" type="text/css">
    <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet">
@@ -18,6 +20,7 @@
     <!--[if lt IE 9]>
         <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
     <![endif]-->
+      <link href='//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' type='text/css' rel="stylesheet">
    <style>
     /* ******************************
 
@@ -1010,13 +1013,13 @@
         margin-bottom: 20px;
     }
 
-    #about {
+    #about, #retailers {
         margin-top: 30px;
         text-align: center;
         padding-bottom: 50px;
     }
 
-    #about article{
+    #about article, #retailers article{
         background: #f4f4f4;
         padding: 50px 80px;
         border-radius: 5px;
@@ -1024,18 +1027,18 @@
         color: #6a7175;
     }
 
-    #about > h1 {
+    #about > h1, #retailers > h1 {
         color: #000;
         font-size: 22px;
 
     }
 
-    #about > h2 {
+    #about > h2, #retailers > h2  {
         color: #00aeaf;
         font-size: 14px;
     }
 
-    #about .page_container:last-child {
+    #about .page_container:last-child, #retailers .page_container:last-child  {
         margin-bottom: 0;
     }
 
@@ -1051,6 +1054,10 @@
 
     #contact {
         margin-top:40px;
+    }
+    
+    #contact .dba-social {
+        font-size: 32px;
     }
 
     .tictail_button {
@@ -1612,11 +1619,17 @@
                         {{#lang}}Store{{/lang}}
                     </a>
                 </li>
+                
+                <li class="{{#retailers_page}}selected{{/retailers_page}}">
+                    <a href="{{store_url}}/retailers">
+                        {{#lang}}Retailers{{/lang}}
+                    </a>
+                </li>
 
                 {{#store_blog_url}}
                 <li>
                     <a href="{{store_blog_url}}" target="_blank">
-                        {{#lang}}Blog{{/lang}}
+                        {{#lang}}Instagram{{/lang}}
                     </a>
                 </li>
                 {{/store_blog_url}}
@@ -1644,6 +1657,12 @@
                 <span class="header_border"></span>
             </li>
             {{/navigation}}
+            
+            <!--li>
+              <a href="{{store_url}}/howtomeasure" class="sub_navigation_button" id="navigation_button_Howtomeasure">
+                {{#lang}}How to measure{{/lang}}
+              </a>
+            </li -->
         </ul>
        
          </nav>
@@ -1658,6 +1677,20 @@
     </div>
 
     <div class="row">
+    {{#howtomeasure_page}}
+    <article class="about_page">
+        <h1>{{#lang}}How to measure{{/lang}}</h1>
+
+        <div class="store_description html_content">
+           To measure your ring size simply measure the inner diameter of a ring that fits you. If the inner diameter is, for example 16 mm, your ring size will be 16 in the order. All measurements should be in mm. <br/><br/>
+           
+           <b>Try to be as exact as possible so I can make the perfect ring for you! </b>
+            
+        </div>
+    </article>
+{{/howtomeasure_page}}
+
+    
         {{#list_page}}
         {{! This block is rendered when displaying a list of products }}
         {{#on_index}} 
@@ -1676,6 +1709,20 @@
             <h1>{{label}}</h1>
             <span class="header_border"></span>
             {{/current_navigation}}
+            
+                    {{#products_howtomeasure_page}}
+    <article class="about_page">
+        <h1>{{#lang}}How to measure test{{/lang}}</h1>
+
+        <div class="store_description html_content">
+           To measure your ring size simply measure the inner diameter of a ring that fits you. If the inner diameter is, for example 16 mm, your ring size will be 16 in the order. All measurements should be in mm. <br/><br/>
+           
+           <b>Try to be as exact as possible so I can make the perfect ring for you! </b>
+            
+        </div>
+    </article>
+{{/products_howtomeasure_page}}
+            
             {{! Output a list if we have any products }}
             {{#products?}}
             {{! Output desktop version }}
@@ -1731,6 +1778,8 @@
         </section>
          {{/on_index}}
         {{/list_page}}
+        
+
 
         {{#product_page}}
         {{! This block is rendered when displaying a single product }}
@@ -1870,19 +1919,7 @@
         {{#list_page}}
             {{^on_index}}
             <section id="about">
-                <article class="column page_container">
-                    <h1>{{#lang}}About{{/lang}}</h1>
-                    <span class="header_border"></span>
-                    <div class="html_content">
-                        {{store_description}}
-                    </div>
-                    <div id="contact">
-                        {{#store_email}}
-                            {{#lang}}Contact:{{/lang}}
-                            <a href="mailto:{{store_email}}">{{store_email}}</a>
-                        {{/store_email}}
-                    </div>
-                </article>
+               
                 <div class="column page_container button_container">
                     <a href="#">
                         <button id="backtotop" class="tictail_button">{{#lang}}Back to top{{/lang}}<span class="icon_up"></span></button>
@@ -1905,10 +1942,32 @@
                         {{#lang}}Contact:{{/lang}}
                         <a href="mailto:{{store_email}}">{{store_email}}</a>
                     {{/store_email}}
+                    <p class="dba-social">
+                        <a href="https://www.facebook.com/designbyanni1/"><i class="icon ion-social-facebook"></i></a>
+                        <a href="
+                http://www.instagram.com/design_by_anni"><i class="icon ion-social-instagram-outline"></i></a>
+                
+                    </p>
                 </div>
             </article>
         </section>
         {{/about_page}}
+        
+        {{#retailers_page}}
+        <section id="retailers">
+          <article class="column page_container">
+                <h1>{{#lang}}Retailers{{/lang}}</h1>
+                <span class="header_border"></span>
+                <div class="html_content">
+                    You can find a selection of my jewelry at the locations below.<br>
+                    <br>
+                    DermaPeel Hudvårdsklinik / Estetikspecialisten <br>
+                    Kärleksgatan 5A<br>
+                    211 45 Malmö<br>
+                </div>
+            </article>
+        </section>
+        {{/retailers_page}}
     </div>
 </div>
 </div>
